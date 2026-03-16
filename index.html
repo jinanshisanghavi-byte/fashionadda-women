@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionAdda - Trendy Women's Clothing | Mumbai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        .cta-btn {
+            background: white;
+            color: #ff6b9d;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+        .rating-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f8f9fa" width="1200" height="800"/><path fill="%23ff6b9d" opacity="0.1" d="M0 400Q300 200 600 400T1200 400V800H0z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        .hero-rating {
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Featured Products */
+        .featured {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .product-img {
+            height: 300px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255,255,255,0.3);
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .dm-btn {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .dm-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        .address {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        .address i {
+            color: #ff6b9d;
+            margin-right: 1rem;
+        }
+        .rating-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .stars {
+            color: #ffd700;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Instagram Section */
+        .instagram {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .ig-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        .ig-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .rating-badge {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">FashionAdda</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#featured">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="rating-badge">
+                    <i class="fas fa-star"></i>
+                    4.4 Google Rating
+                </div>
+                <a href="https://www.instagram.com/fashionadda_10?igsh=aXdyM2VqdjRrNDBn" class="cta-btn" target="_blank">DM to Order</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Trendy Women's Fashion</h1>
+                <p>Discover cord sets, dresses, tops & more at FashionAdda</p>
+                <div class="hero-rating">
+                    <div class="rating-badge" style="background: rgba(255,255,255,0.3); margin: 0 auto; max-width: 200px;">
+                        <i class="fas fa-star"></i>
+                        4.4 ⭐ Google Rating
+                    </div>
+                </div>
+                <a href="#featured" class="dm-btn">Shop Now - DM to Order</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="featured" class="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Collection</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Co-ord Sets</h3>
+                        <p>Perfect matching sets for every occasion</p>
+                        <a href="https://www.instagram.com/fashionadda_10?igsh=aXdyM2VqdjRrNDBn" class="dm-btn" target="_blank">DM to Order</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-dress"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dresses</h3>
+                        <p>Elegant dresses for day & night</p>
+                        <a href="https://www.instagram.com/fashionadda_10?igsh=aXdyM2VqdjRrNDBn" class="dm-btn" target="_blank">DM to Order</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tops</h3>
+                        <p>Trendy tops for every style</p>
+                        <a href="https://www.instagram.com/fashionadda_10?igsh=aXdyM2VqdjRrNDBn" class="dm-btn" target="_blank">DM to Order</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-star-and-crescent"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Trendy Collection</h3>
+                        <p>Latest fashion trends just for you</p>
+                        <a href="https://www.instagram.com/fashionadda_10?igsh=aXdyM2VqdjRrNDBn" class="dm-btn" target="_blank">DM to Order</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <h3 style="color: #333; margin-bottom: 1rem;">More Women's Fashion Awaits!</h3>
+                <a href="https://www.instagram.com/fashionadda_10?igsh=aXdyM2VqdjRrNDBn" class="dm-btn" style="font-size: 1.2rem; padding: 1rem 2.5rem;" target="_blank">
+                    DM on Instagram for Full Collection
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2>About FashionAdda</h2>
+                    <p>FashionAdda is your destination for women's fashion. We specialize in trendy cord sets, elegant dresses, stylish tops, and the latest fashion trends that make every woman feel confident and beautiful.</p>
+                    <p>Discover our exclusive collection of women's clothing that combines comfort, style, and affordability. From casual wear to party outfits, we have it all!</p>
+                    
+                    <div class="rating-section">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3 style="color: #333; margin-bottom: 0.5rem;">4.4 Google Rating</h3>
+                        <p style="color: #666; font-size: 1.1rem;">Loved by customers across Mumbai!</p>
+                    </div>
+                    
+                    <div class="address">
+                        <h4><i class="fas fa-map-marker-alt"></i>Visit Us</h4>
+                        <p><strong>A-1 Prakash Building,<br>R.B Mehta Road,<br>Ghatkopar East, Mumbai</strong></p>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="product-img" style="height: 400px; margin: 0 auto 2rem; width: 300px; border-radius: 20px;">
+                        <i class="fas fa-heart" style="font-size: 6rem; color: #ff6b9d;"></i>
+                    </div>
+                    <h3 style="color: #ff6b9d;">Made for Modern Women</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="instagram">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Follow Us on Instagram</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Check out our latest collection & DM to order!</p>
+            <div class="ig-link">
+                <a href="https://www.instagram.com/fashionadda_10?igsh=aXdyM2VqdjRrNDBn" target="_blank">
+                    <i class="fab fa-instagram" style="font-size: 2rem; margin-right: 1rem;"></i>
+                    @fashionadda_10
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FashionAdda. All rights reserved. | <i class="fas fa-star"></i> 4.4 Google Rating | DM @fashionadda_10 to order | A-1 Prakash Building, Ghatkopar East, Mumbai</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 107, 157, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #ff6b9d 0%, #c44569 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
